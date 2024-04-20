@@ -1,5 +1,5 @@
 '''
-Created By: Oğuzhan Umut Bek , Seymen Alper ABİMMMM , Rıza Arslan , Mehmet Enes Polat
+Created By: Oğuzhan Umut Bek , Seymen Alper ABİMMMMMM , Rıza Arslan , Mehmet Enes Polat
 '''
 import numpy as np
 import stddraw  # the stddraw module is used as a basic graphics library
