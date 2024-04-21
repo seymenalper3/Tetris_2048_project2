@@ -4,6 +4,7 @@ from point import Point  # used for tile positions
 import numpy as np  # fundamental Python module for scientific computing
 from color import Color
 import stddraw
+
 # Class used for representing tetrominoes with 3 out of 7 different types/shapes
 # as (I, O and Z)
 class Tetromino:
@@ -18,7 +19,7 @@ class Tetromino:
         if type == 'I':
             n = 4  # n = number of rows = number of columns in the tile matrix
             # shape of the tetromino I in its initial orientation
-            self.occupied_tiles.append((1, 0))  # (column_index, row_index)
+            self.occupied_tiles.append((1, 0)) # (column_index, row_index)
             self.occupied_tiles.append((1, 1))
             self.occupied_tiles.append((1, 2))
             self.occupied_tiles.append((1, 3))

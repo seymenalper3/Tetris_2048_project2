@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8f84cc9-5b41-4826-a179-981e57ada900" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a8f84cc9-5b41-4826-a179-981e57ada900" name="Changes" comment="gamegrid final version">
       <change beforePath="$PROJECT_DIR$/tetris-2048-main/Tetris_2048.py" beforeDir="false" afterPath="$PROJECT_DIR$/tetris-2048-main/Tetris_2048.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tetris-2048-main/game_grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tetris-2048-main/game_grid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     "Python.color.executor": "Run",
     "Python.game_grid.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "seymenin__çalışmaları",
+    "git-widget-placeholder": "seymenabimproje",
     "last_opened_file_path": "C:/Users/Eymen/Desktop/Tetris_2048_project2",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
@@ -104,5 +104,9 @@
       <updated>1713603624658</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gamegrid final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="gamegrid final version" />
   </component>
 </project>
