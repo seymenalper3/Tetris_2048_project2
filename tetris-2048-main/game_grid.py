@@ -1,5 +1,5 @@
 '''
-Created By: Oğuzhan Umut Bek , Seymen Alper , Rıza Arslan , Mehmet Enes Polat
+Developers: Oğuzhan Umut Bek , Seymen Alper , Rıza Arslan , Mehmet Enes Polat
 '''
 import stddraw  # the stddraw module is used as a basic graphics library
 from color import Color  # used for coloring the game grid
@@ -40,8 +40,6 @@ class GameGrid:
         self.game_speed = 250
         # It maintains another score information to update the speed based on the total score.
         self.last_updated = 0
-        # Keeps number of time speed incread
-        self.speed_increased_counter = 0
 
         # Initializes the necessary variables from pygame to play background.
         pygame.init()
@@ -51,13 +49,13 @@ class GameGrid:
     # Method used for displaying the game grid
     def display(self):
         # Checks if value of last_updated is > 500, if yes, increases the game speed
-        self.change_speed()
+
         # clear the background canvas to empty_cell_color
         stddraw.clear(self.empty_cell_color)
         # draw the game grid
         self.draw_grid()
         # draw the current (active) tetromino
-        if self.current_tetromino != None and self.next_tetromino != None:
+        if self.current_tetromino is not None and self.next_tetromino is not None:
             self.current_tetromino.draw()
             self.next_tetromino.draw()
 
@@ -72,10 +70,10 @@ class GameGrid:
         for row in range(self.grid_height):
             for col in range(self.grid_width):
                 # draw the tile if the grid cell is occupied by a tile
-                if self.tile_matrix[row][col] != None:
+                if self.tile_matrix[row][col] is not None:
                   self.tile_matrix[row][col].draw()
 
-        # Drawing the stop button
+        # Draws the stop button
         stddraw.setPenColor(Color(238, 130, 238))
         stddraw.filledRectangle(12.5, 18.5, .6, .6)
         stddraw.setPenRadius(100)
@@ -84,9 +82,9 @@ class GameGrid:
         stddraw.text(12.8, 18.8, "||")
 
         # Draws the main score on the top right of the main game screen
-        self.drawScore(self.score)
+        self.show_score(self.score)
         # Displays total number of count how many times the speed increased
-        self.display_info("" ,self.speed_increased_counter)
+        self.show_next_tetromino()
 
         # draw the inner lines of the grid
         stddraw.setPenColor(Color(  0, 255, 255))
@@ -113,14 +111,14 @@ class GameGrid:
         stddraw.rectangle(pos_x, pos_y, self.grid_width, self.grid_height)
         stddraw.setPenRadius()  # reset the pen radius to its default value
 
-    # Method used for checking whether the grid cell with given row and column
+    # A method used checking whether the grid cell with the given row and column
     # indexes is occupied by a tile or empty
     def is_occupied(self, row, col):
         # return False if the cell is out of the grid
         if not self.is_inside(row, col):
             return False
         # the cell is occupied by a tile if it is not None
-        return self.tile_matrix[row][col] != None
+        return self.tile_matrix[row][col] is not None
 
     # Method used for checking whether the cell with given row and column indexes
     # is inside the game grid or not
@@ -131,17 +129,16 @@ class GameGrid:
             return False
         return True
 
-    # Method for updating the game grid by placing the given tiles of a stopped
-    # tetromino and checking if the game is over due to having tiles above the
-    # topmost game grid row. The method returns True when the game is over and
-    # False otherwise.
+    # A method that locks the tiles of a landed tetromino on the grid checking
+    # if the game is over due to having any tile above the topmost grid row.
+    # (This method returns True when the game is over and False otherwise.)
     def update_grid(self, tiles_to_place):
         # place all the tiles of the stopped tetromino onto the game grid
         n_rows, n_cols = len(tiles_to_place), len(tiles_to_place[0])
         for col in range(n_cols):
             for row in range(n_rows):
                 # place each occupied tile onto the game grid
-                if tiles_to_place[row][col] != None:
+                if tiles_to_place[row][col] is not None:
                     pos = tiles_to_place[row][col].get_position()
                     if self.is_inside(pos.y, pos.x):
                         self.tile_matrix[pos.y][pos.x] = tiles_to_place[row][col]
@@ -151,41 +148,31 @@ class GameGrid:
         # return the game_over flag
         return self.game_over
 
-    # Takes list of free tile (tiles which is not connected others), send them one unit down
-    def move_free_tiles(self, free_tiles):
-        for row in range(self.grid_height):  # excluding the bottommost row
-            for col in range(self.grid_width):
-                if free_tiles[row][col]:
-                    free_tile_copy = copy.deepcopy(self.tile_matrix[row][col])
-                    self.tile_matrix[row - 1][col] = free_tile_copy
-                    dx, dy = 0, -1  # change of the position in x and y directions
-                    self.tile_matrix[row - 1][col].move(dx, dy)
-                    self.tile_matrix[row][col] = None
 
-    # Draws the main score and speed
-    def drawScore(self, score=0):
+
+
+
+    # shows next tetromino by using next_tetromino parameter
+    def show_next_tetromino(self):
+        stddraw.setPenRadius(150)
+        stddraw.setPenColor(Color(255, 255, 255))
+        stddraw.text(15.8, 5, "NEXT TETROMINO : ")
+    # Shows the main score
+    def show_score(self, score=0):
         stddraw.setPenRadius(150)
         stddraw.setFontSize(25)
         stddraw.setPenColor(Color(255,255,255))
         stddraw.text(15.8, 18.8, "Score: " + str(score))
 
-    # Takes following tetromino from Game object rightside
+        # Takes list of free tile (tiles which is not connected others), send them one unit down
+    def handle_free_tiles(self, free_tiles):
+            for row in range(self.grid_height):  # excluding the bottommost row
+                for col in range(self.grid_width):
+                    if free_tiles[row][col]:
+                        free_tile_copy = copy.deepcopy(self.tile_matrix[row][col])
+                        self.tile_matrix[row - 1][col] = free_tile_copy
+                        dx, dy = 0, -1  # change of the position in x and y directions
+                        self.tile_matrix[row - 1][col].move(dx, dy)
+                        self.tile_matrix[row][col] = None
     def set_next(self, next_tetromino):
         self.next_tetromino = next_tetromino
-
-    # Increases the game speed according to the total score for each 500 score
-    # If game speed is less than 50, speed does not change
-    def change_speed(self):
-        if self.last_updated > 500 and self.game_speed >= 50:
-            change_rate = int(self.game_speed * 0.05)
-            print("Previous Speed", self.game_speed)
-            self.game_speed -= change_rate
-            print("New Speed", self.game_speed)
-            self.speed_increased_counter += 1
-            self.last_updated = self.score % 500
-
-    # Displays given information text on the screen
-    def display_info(self, txt, count):
-        stddraw.setPenRadius(150)
-        stddraw.setPenColor(Color(255, 255, 255))
-        stddraw.text(15.8, 5,  "NEXT TETROMINO : ")

@@ -1,5 +1,5 @@
 '''
-Created By: Oğuzhan Umut Bek , Seymen Alper ABİMMMMMM , Rıza Arslan , Mehmet Enes Polat
+Developers: Oğuzhan Umut Bek , Seymen Alper , Rıza Arslan , Mehmet Enes Polat
 '''
 import numpy as np
 import stddraw  # the stddraw module is used as a basic graphics library
@@ -130,14 +130,14 @@ class Game:
                 free_tiles = [[False for v in range(grid_w)] for b in range(grid_h)]
                 free_tiles, num_free = self.find_free_tiles(grid_h, grid_w, labels, free_tiles)
                 # Drop downs the each tile which is not connected the other ones
-                grid.move_free_tiles(free_tiles)
+                grid.handle_free_tiles(free_tiles)
 
                 # Drops down tiles that don't connect any other tiles until there is no tile to drop down
                 while num_free != 0:
                     labels, num_labels = self.connected_component_labeling(grid.tile_matrix, grid_w, grid_h)
                     free_tiles = [[False for v in range(grid_w)] for b in range(grid_h)]
                     free_tiles, num_free = self.find_free_tiles(grid_h, grid_w, labels, free_tiles)
-                    grid.move_free_tiles(free_tiles)
+                    grid.handle_free_tiles(free_tiles)
 
                 labels, num_labels = self.connected_component_labeling(grid.tile_matrix, grid_w, grid_h)
                 merge = self.merge_tiles(grid)
@@ -157,7 +157,7 @@ class Game:
                 labels, num_labels = self.connected_component_labeling(grid.tile_matrix, grid_w, grid_h)
                 free_tiles = [[False for v in range(grid_w)] for b in range(grid_h)]
                 free_tiles, num_free = self.find_free_tiles(grid_h, grid_w, labels, free_tiles)
-                grid.move_free_tiles(free_tiles)
+                grid.handle_free_tiles(free_tiles)
 
                 # Drops down tiles that don't connect any other tiles until there is no tile to drop down
                 while num_free != 0:
@@ -165,7 +165,7 @@ class Game:
                     free_tiles = [[False for v in range(grid_w)] for b in range(grid_h)]
                     free_tiles, num_free = self.find_free_tiles(grid_h, grid_w, labels, free_tiles)
                     # Drop downs the each tile which is not connected the other ones
-                    grid.move_free_tiles(free_tiles)
+                    grid.handle_free_tiles(free_tiles)
 
                 labels, num_labels = self.connected_component_labeling(grid.tile_matrix, grid_w, grid_h)
 
@@ -430,11 +430,11 @@ class Game:
         stddraw.setPenColor(Color(255, 255, 255))
 
 
-        stddraw.text(img_center_x, 5, "Normal") # changes text positions
+        stddraw.text(img_center_x, 5, "Medium") # changes text positions
 
-        stddraw.text(img_center_x, 8,  "Slow")
+        stddraw.text(img_center_x, 8,  "Easy")
 
-        stddraw.text(img_center_x, 2, "Fast")
+        stddraw.text(img_center_x, 2, "Insane")
 
         while True:
             # display the menu and wait for a short time
@@ -446,22 +446,22 @@ class Game:
                 # most recently been left-clicked
                 mouse_x, mouse_y = stddraw.mouseX(), stddraw.mouseY()
                 print(mouse_x)
-                # Draws a frame per 175ms
+                # Draws a frame per 80ms
                 if mouse_x >= button1_blc_x and mouse_x <= button1_blc_x + button_w +7:
                     if mouse_y >= button1_blc_y and mouse_y <= button1_blc_y + button_h:
-                        print("Fast speed")
-                        grid.game_speed = 80
+                        print("Insane speed")
+                        grid.game_speed = 65
                         break
-                # Draws a frame per 200ms
+                # Draws a frame per 130ms
                 if mouse_x >= button2_blc_x and mouse_x <= button2_blc_x + button_w +7:
                     if mouse_y >= button2_blc_y and mouse_y <= button2_blc_y + button_h:
-                        print("Normal speed")
+                        print("Medium speed")
                         grid.game_speed = 130
                         break
-                # Draws a frame per 150ms
+                # Draws a frame per 250 ms
                 if mouse_x >= button3_blc_x and mouse_x <= button3_blc_x + button_w +7:
                     if mouse_y >= button3_blc_y and mouse_y <= button3_blc_y + button_h:
-                        print("Slow speed")
+                        print("Easy speed")
                         grid.game_speed = 250
                         break
 
