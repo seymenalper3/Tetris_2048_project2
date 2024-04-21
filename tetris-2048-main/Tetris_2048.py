@@ -10,7 +10,7 @@ from picture import Picture  # used representing images to display
 import os  # used for file and directory operations
 from color import Color  # used for coloring the game menu
 
-# Includes necessary functions to playing the game
+# Includes necessary functions to playing the game and new Commit 14.42
 class Game:
     # MAIN FUNCTION OF THE PROGRAM
     # -------------------------------------------------------------------------------
