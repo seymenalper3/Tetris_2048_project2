@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8f84cc9-5b41-4826-a179-981e57ada900" name="Changes" comment="MARABA">
-      <change beforePath="$PROJECT_DIR$/tetris-2048-main/game_grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tetris-2048-main/game_grid.py" afterDir="false" />
+    <list default="true" id="a8f84cc9-5b41-4826-a179-981e57ada900" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tetris-2048-main/Tetris_2048.py" beforeDir="false" afterPath="$PROJECT_DIR$/tetris-2048-main/Tetris_2048.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,18 +14,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="seymenabimproje" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;OguzhanBek&quot;
+    &quot;assignee&quot;: &quot;seymenalper3&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/seymenalper3/Tetris_2048_project2.git&quot;,
-    &quot;accountId&quot;: &quot;2e5e71a2-6c42-4e7a-9af6-cbb51bb3e3ea&quot;
+    &quot;accountId&quot;: &quot;b67e1107-2050-4af1-a6d7-570ba2c309f5&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -41,8 +47,8 @@
     "Python.color.executor": "Run",
     "Python.game_grid.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "seymenabimproje",
-    "last_opened_file_path": "C:/Users/MSİ/Desktop/Tetris_2048_project2",
+    "git-widget-placeholder": "seymenin__çalışmaları",
+    "last_opened_file_path": "C:/Users/Eymen/Desktop/Tetris_2048_project2",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -78,8 +84,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.color" />
-        <item itemvalue="Python.color" />
-        <item itemvalue="Python.color" />
       </list>
     </recent_temporary>
   </component>
@@ -99,39 +103,6 @@
       <option name="presentableId" value="Default" />
       <updated>1713603624658</updated>
     </task>
-    <task id="LOCAL-00001" summary="SA AS">
-      <option name="closed" value="true" />
-      <created>1713639285159</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1713639285159</updated>
-    </task>
-    <task id="LOCAL-00002" summary="MARABA">
-      <option name="closed" value="true" />
-      <created>1713639974653</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1713639974653</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="SA AS" />
-    <MESSAGE value="MARABA" />
-    <option name="LAST_COMMIT_MESSAGE" value="MARABA" />
   </component>
 </project>
